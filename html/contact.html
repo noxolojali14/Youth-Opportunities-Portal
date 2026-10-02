@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Report | Youth Opportunities Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="scam-banner" aria-label="Security Alert">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <strong>Safety Warning:</strong> Youth Opportunities are 100% FREE. Never pay money to apply.
+  </aside>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-group">
+        <span class="logo-badge">YO</span>
+        <div>
+          <span class="logo-title">Youth Opportunities Portal</span>
+          <span class="logo-sub">South African Youth Hub</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Desktop Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html" class="active">Contact & Report</a></li>
+        </ul>
+      </nav>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <nav aria-label="Primary Mobile Navigation">
+        <ul class="mobile-drawer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html" class="active">Contact & Report</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="main-layout">
+
+    <div style="margin-bottom: 2rem; text-align: center;">
+      <h1 class="section-title" style="font-size: 2rem;">Contact & Report Portal</h1>
+      <p class="section-subtitle">Help us maintain a clean portal by reporting expired posts or submitting feedback.</p>
+    </div>
+
+    <div class="form-container">
+      <div id="form-error" class="alert alert-danger" role="alert"></div>
+      <div id="form-success" class="alert alert-success" role="alert"></div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="contact-name" class="form-label">Full Name *</label>
+          <input type="text" id="contact-name" class="form-control" placeholder="e.g. Thabo Mokoena" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="contact-email" class="form-label">Email Address *</label>
+          <input type="email" id="contact-email" class="form-control" placeholder="e.g. thabo@example.co.za" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="contact-subject" class="form-label">Reason / Inquiry Type *</label>
+          <select id="contact-subject" class="form-control" required>
+            <option value="">-- Select Inquiry Reason --</option>
+            <option value="report-expired">Report Expired Opportunity</option>
+            <option value="report-fraud">Report Fraudulent / Suspicious Listing</option>
+            <option value="suggest">Suggest New Opportunity</option>
+            <option value="general">General Support Enquiry</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="contact-opp-name" class="form-label">Opportunity Name (Optional)</label>
+          <input type="text" id="contact-opp-name" class="form-control" placeholder="Name of listing being reported" />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label for="contact-message" class="form-label">Detailed Message *</label>
+          <textarea id="contact-message" rows="5" class="form-control" placeholder="Provide full details regarding your inquiry or report..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message</button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">Youth Opportunities Portal</h3>
+        <p>Contact the portal team with questions, feedback, or reports about opportunity listings.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Youth Opportunities Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/contact.js"></script>
+</body>
+</html>

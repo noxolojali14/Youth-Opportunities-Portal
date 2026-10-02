@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth Opportunities Portal | South African Youth Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ACCESSIBILITY: Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SCAM WARNING BANNER -->
+  <aside class="scam-banner" aria-label="Security Alert">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <strong>Safety Warning:</strong> Youth Opportunities are 100% FREE. Never pay any fee for interviews, uniforms, or application processing.
+  </aside>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-group">
+        <span class="logo-badge">YO</span>
+        <div>
+          <span class="logo-title">Youth Opportunities Portal</span>
+          <span class="logo-sub">South African Youth Hub</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Desktop Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html">Contact & Report</a></li>
+        </ul>
+      </nav>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <nav aria-label="Primary Mobile Navigation">
+        <ul class="mobile-drawer-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html">Contact & Report</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="main-layout home-main">
+
+  <!-- FULL-WIDTH OPPORTUNITY SEARCH -->
+  <section class="hero-card" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <span class="badge-tag">South African Youth Opportunities Hub</span>
+      <h1 id="hero-title" class="hero-title">Find your next opportunity</h1>
+      <p class="hero-subtitle">Explore work, learning, and career development opportunities for young people across South Africa.</p>
+
+      <form action="opportunities.html" method="GET" class="hero-search-form" role="search">
+        <label for="hero-search" class="sr-only">Search opportunities</label>
+        <div class="hero-search-field">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="hero-search" name="search" placeholder="Search by title, field, or city (e.g. Web or Cape Town)" class="hero-search-input" />
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Search Opportunities
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <div class="hero-stats" aria-label="Portal overview">
+        <div class="hero-stat">
+          <strong>7</strong>
+          <span>Sample listings</span>
+        </div>
+        <div class="hero-stat">
+          <strong>7</strong>
+          <span>Opportunity categories</span>
+        </div>
+        <div class="hero-stat">
+          <strong>3</strong>
+          <span>Provinces represented in sample data</span>
+        </div>
+      </div>
+      <p class="hero-sample-note">Listings are sample records for demonstration and are not confirmed vacancies.</p>
+    </div>
+  </section>
+
+  <div class="home-content">
+    <!-- CATEGORIES SECTION -->
+    <section style="margin-bottom: 2.5rem;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Browse Opportunities by Category</h2>
+          <p class="section-subtitle">Browse opportunities by the path that interests you</p>
+        </div>
+      </div>
+
+      <div class="category-grid">
+        <a href="opportunities.html?category=Job" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+          <span class="category-name">Jobs</span>
+        </a>
+        <a href="opportunities.html?category=Internship" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+          <span class="category-name">Internships</span>
+        </a>
+        <a href="opportunities.html?category=Learnership" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-certificate" aria-hidden="true"></i></span>
+          <span class="category-name">Learnerships</span>
+        </a>
+        <a href="opportunities.html?category=Bursary" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span>
+          <span class="category-name">Bursaries</span>
+        </a>
+        <a href="opportunities.html?category=Course" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-laptop" aria-hidden="true"></i></span>
+          <span class="category-name">Courses</span>
+        </a>
+        <a href="opportunities.html?category=Programme" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span>
+          <span class="category-name">Skills Programmes</span>
+        </a>
+        <a href="opportunities.html?category=Career%20Event" class="category-card">
+          <span class="category-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>
+          <span class="category-name">Career Events</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED OPPORTUNITIES -->
+    <section style="margin-bottom: 2.5rem;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Featured Opportunities</h2>
+          <p class="section-subtitle">Sample listings with upcoming closing dates</p>
+        </div>
+        <a href="opportunities.html" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.85rem;">View All <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div id="featured-grid" class="opportunities-grid"></div>
+    </section>
+
+    <!-- CAREER READINESS SECTION -->
+    <section style="margin-bottom: 2rem;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Career Readiness Essentials</h2>
+          <p class="section-subtitle">Guiding young applicants towards successful job placement</p>
+        </div>
+        <a href="resources.html" class="btn btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.85rem;">Explore Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="resources-grid">
+        <div class="resource-card">
+          
+          <span class="resource-badge">CV GUIDE</span>
+          <h3 class="resource-title">Writing a Professional CV</h3>
+          <p class="resource-desc">Structure a clean 2-page CV tailored for South African employers even without prior work experience.</p>
+          <a href="resources.html#cv-section" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 0.75rem;">Read Guide</a>
+        </div>
+
+        <div class="resource-card">
+          <span class="resource-badge">INTERVIEW PREP</span>
+          <h3 class="resource-title">Interview Success Tips</h3>
+          <p class="resource-desc">Prepare responses for common interview questions and build confidence before meeting recruiters.</p>
+          <a href="resources.html#interview-section" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 0.75rem;">Read Guide</a>
+        </div>
+
+        <div class="resource-card">
+          <span class="resource-badge">SCAM AWARENESS</span>
+          <h3 class="resource-title">Spotting Recruitment Scams</h3>
+          <p class="resource-desc">Learn key warning signs to protect yourself from fake employment and training scams.</p>
+          <a href="resources.html#scam-section" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 0.75rem;">Read Guide</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div style="max-width: 450px;">
+        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">Youth Opportunities Portal</h3>
+        <p>A searchable directory of work, learning, and career development opportunities for young people in South Africa.</p>
+      </div>
+
+      <div>
+        <h4 style="color: var(--white); font-size: 0.95rem; margin-bottom: 0.5rem;">Quick Navigation</h4>
+        <ul style="list-style: none; line-height: 1.8;">
+          <li><a href="index.html" style="color: var(--gray-300); text-decoration: none;">Home</a></li>
+          <li><a href="opportunities.html" style="color: var(--gray-300); text-decoration: none;">Explore Catalog</a></li>
+          <li><a href="resources.html" style="color: var(--gray-300); text-decoration: none;">Career Resources</a></li>
+          <li><a href="contact.html" style="color: var(--gray-300); text-decoration: none;">Report Expired Post</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Sample opportunity listings are for demonstration purposes and should not be treated as real vacancies.</p>
+      <p style="margin-top: 0.5rem;">© 2026 Youth Opportunities Portal. Sample listings are identified and are not confirmed vacancies.</p>
+    </div>
+  </footer>
+
+  <aside class="applicant-warning" aria-label="Important applicant information">
+    <button
+      class="applicant-warning-tab"
+      id="applicant-warning-toggle"
+      type="button"
+      aria-label="Open important applicant warning"
+      aria-expanded="false"
+      aria-controls="applicant-warning-panel"
+    >
+      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+      <span>Important</span>
+    </button>
+    <section
+      class="applicant-warning-panel"
+      id="applicant-warning-panel"
+      aria-labelledby="applicant-warning-title"
+      hidden
+    >
+      <h2 id="applicant-warning-title">Important applicant notice</h2>
+      <p>Important: This portal is a student demo project and the opportunities currently displayed are sample listings. Always confirm an opportunity on the organisation's official website before submitting personal information or documents. Never pay money to apply for a job, learnership, internship, bursary, or course.</p>
+      <button class="applicant-warning-close" type="button">Close</button>
+    </section>
+  </aside>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
