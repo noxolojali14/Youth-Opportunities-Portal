@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Find Opportunities | Youth Opportunities Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
@@ -35,7 +35,7 @@
         </ul>
       </nav>
 
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false" aria-controls="mobile-drawer">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
@@ -54,9 +54,9 @@
 
   <main id="main-content" class="main-layout">
 
-    <div style="margin-bottom: 1.5rem;">
-      <h1 class="section-title" style="font-size: 2rem;">Find Opportunities</h1>
-      <p class="section-subtitle">Browse sample opportunities and filter by category, location, experience level, or closing date.</p>
+    <div class="page-intro">
+      <h1 class="section-title">Explore Opportunities</h1>
+      <p class="section-subtitle">Search sample jobs, internships, learnerships, bursaries, courses and career events.</p>
     </div>
 
     <!-- FILTERS AND SEARCH PANEL -->
@@ -70,38 +70,27 @@
         <div class="form-group">
           <label for="filter-category" class="form-label">Category</label>
           <select id="filter-category" class="form-control">
-            <option value="All">All Categories</option>
-            <option value="Job">Job</option>
-            <option value="Internship">Internship</option>
-            <option value="Learnership">Learnership</option>
-            <option value="Bursary">Bursary</option>
-            <option value="Course">Course</option>
-            <option value="Programme">Programme</option>
-            <option value="Career Event">Career Event</option>
+            <option value="All">All categories</option>
+            <option value="Job">Jobs</option>
+            <option value="Internship">Internships</option>
+            <option value="Learnership">Learnerships</option>
+            <option value="Bursary">Bursaries</option>
+            <option value="Course">Courses</option>
+            <option value="Programme">Skills programmes</option>
+            <option value="Career Event">Career events</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="filter-location" class="form-label">Location</label>
           <select id="filter-location" class="form-control">
-            <option value="All">All Locations</option>
+            <option value="All">All locations</option>
             <option value="Cape Town">Cape Town</option>
             <option value="Johannesburg">Johannesburg</option>
             <option value="Durban">Durban</option>
             <option value="Pretoria">Pretoria</option>
-            <option value="Gqeberha">Gqeberha</option>
             <option value="Remote">Remote</option>
-            <option value="Nationwide">Nationwide</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="filter-experience" class="form-label">Experience</label>
-          <select id="filter-experience" class="form-control">
-            <option value="All">All Levels</option>
-            <option value="No Experience">No Experience</option>
-            <option value="Entry Level">Entry Level</option>
-            <option value="Graduate">Graduate</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
@@ -113,17 +102,20 @@
         <div class="form-group">
           <label for="filter-sort" class="form-label">Sort By</label>
           <select id="filter-sort" class="form-control">
-            <option value="newest">Recently Updated</option>
-            <option value="closingSoon">Closing Soonest</option>
+            <option value="newest">Newest</option>
+            <option value="closingSoon">Closing soon</option>
+            <option value="az">A-Z</option>
           </select>
         </div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-200); font-size: 0.85rem;">
-        <span id="results-count" style="font-weight: 700; color: var(--gray-700);">Showing 0 opportunities</span>
-        <button id="reset-filters-btn" class="btn btn-outline" style="padding: 0.3rem 0.75rem; font-size: 0.8rem;">Reset Filters</button>
+      <div class="filters-footer">
+        <span id="results-count" aria-live="polite">Showing 0 opportunities</span>
+        <button id="reset-filters-btn" class="btn btn-outline" type="button">Clear Filters</button>
       </div>
     </section>
+
+    <p class="sample-notice" role="note"><strong>Sample data:</strong> These fictional listings are for demonstration only. Verify opportunities on an organisation's official website before applying.</p>
 
     <!-- CATALOG RESULTS GRID -->
     <section>
@@ -134,14 +126,14 @@
 
   <footer class="site-footer">
     <div class="footer-container">
-      <div style="max-width: 450px;">
-        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">Youth Opportunities Portal</h3>
+      <div class="footer-intro">
+        <h3 class="footer-heading">Youth Opportunities Portal</h3>
         <p>A searchable directory of work, learning, and career development opportunities for young people in South Africa.</p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>Sample listings are for demonstration and are not confirmed vacancies.</p>
-      <p style="margin-top: 0.5rem;">© 2026 Youth Opportunities Portal. Demonstration listing data.</p>
+      <p>© 2026 Youth Opportunities Portal. Demonstration listing data.</p>
     </div>
   </footer>
 

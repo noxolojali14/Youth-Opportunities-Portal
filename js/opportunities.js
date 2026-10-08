@@ -38,7 +38,7 @@
     const message = opportunity.sample
       ? "Fictional demonstration listing — there is no real application link."
       : "Application link currently unavailable.";
-    return `<p class="application-unavailable" role="note">${helpers.escapeHtml(message)}</p>`;
+    return `<div class="application-action"><button class="btn btn-primary apply-button" type="button" disabled aria-describedby="application-note">Apply Now</button><p class="application-unavailable" id="application-note" role="note">${helpers.escapeHtml(message)}</p></div>`;
   }
 
   function renderOpportunityCard(opportunity) {
@@ -61,6 +61,7 @@
             <li><strong>Location:</strong> ${helpers.escapeHtml(opportunity.location || "Not specified")}</li>
             <li><strong>Closes:</strong> ${helpers.escapeHtml(closingDate)}</li>
             <li><strong>Experience:</strong> ${helpers.escapeHtml(opportunity.experience || "Not specified")}</li>
+            <li><strong>Updated:</strong> ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</li>
           </ul>
           <p class="card-desc">${helpers.escapeHtml(description)}</p>
         </div>
@@ -75,7 +76,6 @@
     const keyword = document.getElementById("search-input").value.trim().toLowerCase();
     const category = document.getElementById("filter-category").value;
     const location = document.getElementById("filter-location").value;
-    const experience = document.getElementById("filter-experience").value;
     const closingBy = document.getElementById("filter-closing-date").value;
     const sortBy = document.getElementById("filter-sort").value;
     const today = helpers.getToday();
@@ -95,11 +95,13 @@
         && (!keyword || searchableText.includes(keyword))
         && (category === "All" || opportunity.category === category)
         && (location === "All" || opportunity.location === location)
-        && (experience === "All" || opportunity.experience === experience)
         && (!closingBy || (opportunity.closingDate && opportunity.closingDate <= closingBy));
     });
 
     matches.sort(function (first, second) {
+      if (sortBy === "az") {
+        return first.title.localeCompare(second.title);
+      }
       if (sortBy === "closingSoon") {
         if (!first.closingDate) return 1;
         if (!second.closingDate) return -1;
@@ -112,7 +114,7 @@
       `Showing ${matches.length} ${matches.length === 1 ? "opportunity" : "opportunities"}`;
 
     if (matches.length === 0) {
-      helpers.showStatus(catalog, "No opportunities found", "Try changing your search or filters.", false);
+      helpers.showStatus(catalog, "No opportunities found", "No opportunities found. Try changing your search or filters.", false);
       return;
     }
     catalog.innerHTML = matches.map(renderOpportunityCard).join("");
@@ -153,6 +155,7 @@
           </div>
           <h1 class="section-title">${helpers.escapeHtml(opportunity.title)}</h1>
           <p class="card-org">${helpers.escapeHtml(opportunity.organisation)}</p>
+          <p class="card-updated">Last updated ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</p>
         </header>
         <dl class="details-meta-grid">
           <div><dt>Location</dt><dd>${helpers.escapeHtml(opportunity.location || "Not specified")}</dd></div>
@@ -200,7 +203,6 @@
       searchInput,
       categoryInput,
       document.getElementById("filter-location"),
-      document.getElementById("filter-experience"),
       document.getElementById("filter-closing-date"),
       document.getElementById("filter-sort")
     ];
@@ -217,7 +219,6 @@
       searchInput.value = "";
       categoryInput.value = "All";
       document.getElementById("filter-location").value = "All";
-      document.getElementById("filter-experience").value = "All";
       document.getElementById("filter-closing-date").value = "";
       document.getElementById("filter-sort").value = "newest";
       updateResults();
@@ -234,8 +235,8 @@
           console.error("Unable to load opportunities:", error);
           helpers.showStatus(
             catalog,
-            "Opportunities are temporarily unavailable",
-            "The sample listings could not be loaded. Please check that Live Server is running from the project folder and try again.",
+            "Sorry, we couldn't load the opportunities right now.",
+            "Please try again later.",
             true
           );
         });

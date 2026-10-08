@@ -1,20 +1,29 @@
 /* ==========================================================================
    Youth Opportunities Portal - Shared Stylesheet
-   Color Palette: South African navy, royal blue, and subtle gold accents
+  Color Palette: Teal and mint, with accessible dark-text contrast
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap");
 
 :root {
-  --primary: #1e3a8a;        /* Deep navy blue */
-  --primary-hover: #172e6b;
-  --primary-light: #eff6ff;
-  --secondary: #2563eb;      /* Royal blue */
-  --gold: #d4a72c;
-  --gold-hover: #e2b83f;
-  --dark: #0f172a;           /* Dark Slate Text */
-  --light: #f8fafc;          /* Light Slate Background */
-  --white: #ffffff;
+  --dark-teal: #0E7C7B;
+  --teal: #118D8B;
+  --dark-cyan: #129593;
+  --medium-teal: #139D9B;
+  --tropical-teal: #17BEBB;
+  --pearl-aqua: #76D9CC;
+  --light-aqua: #A5E7D5;
+  --frosted-mint: #D4F4DD;
+  --white: #FFFFFF;
+  --dark-text: #163535;
+  --primary: var(--dark-teal);
+  --primary-hover: #096563;
+  --primary-light: var(--frosted-mint);
+  --secondary: var(--tropical-teal);
+  --gold: var(--pearl-aqua);
+  --gold-hover: var(--light-aqua);
+  --dark: var(--dark-text);
+  --light: #F5FBF8;
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
   --gray-300: #cbd5e1;
@@ -26,14 +35,15 @@
   --red-600: #dc2626;
   --green-600: #16a34a;
   
-  --font-main: "Inter", Arial, sans-serif;
+  --font-main: "DM Sans", sans-serif;
+  --font-display: "Sora", "DM Sans", sans-serif;
   --max-width: 1200px;
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 25px rgba(30, 58, 138, 0.16);
+  --shadow-lg: 0 10px 25px rgba(14, 124, 123, 0.16);
 }
 
 /* --- Global Reset & Base Styles --- */
@@ -1032,4 +1042,514 @@ label {
 
 #results-count {
   font-weight: 600 !important;
+}
+
+/* Shared teal identity and responsive finishing touches. */
+html {
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo-title,
+.hero-title {
+  font-family: var(--font-display);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: var(--tropical-teal) !important;
+}
+
+.site-header {
+  background: var(--dark-teal);
+  border-bottom: 0;
+}
+
+.logo-group,
+.logo-title,
+.logo-sub,
+.mobile-nav-toggle {
+  color: var(--white);
+}
+
+.logo-badge {
+  color: var(--dark-teal);
+  background: var(--light-aqua);
+}
+
+.nav-links a {
+  color: var(--white);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--dark-teal);
+  background: var(--frosted-mint);
+}
+
+.mobile-nav-toggle i {
+  color: var(--white);
+}
+
+.mobile-drawer {
+  background: var(--dark-teal);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-drawer-links a {
+  color: var(--white);
+}
+
+.mobile-drawer-links a:hover,
+.mobile-drawer-links a.active {
+  background: var(--frosted-mint);
+  color: var(--dark-teal);
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 88% 15%, rgba(165, 231, 213, 0.42), transparent 24rem),
+    linear-gradient(118deg, var(--dark-teal), var(--teal) 68%, var(--dark-cyan));
+  border: 0;
+  padding: 4.5rem 1.25rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  max-width: 12ch;
+  font-size: 2.5rem;
+  line-height: 1.12;
+}
+
+.hero-subtitle,
+.hero-sample-note {
+  color: var(--frosted-mint);
+}
+
+.hero-stats strong {
+  color: var(--light-aqua);
+}
+
+.hero-search-form .btn-primary {
+  background: var(--frosted-mint);
+  color: var(--dark-teal);
+}
+
+.hero-search-form .btn-primary:hover {
+  background: var(--light-aqua);
+}
+
+.btn,
+.mobile-nav-toggle,
+.applicant-warning-close {
+  min-height: 44px;
+}
+
+.btn-primary,
+.apply-button {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+.apply-button:hover {
+  background: var(--dark-teal);
+}
+
+.btn-outline {
+  border-color: var(--teal);
+  color: var(--dark-teal);
+}
+
+.btn-outline:hover,
+.btn-secondary {
+  background: var(--frosted-mint);
+  color: var(--dark-teal);
+}
+
+.opportunity-card,
+.resource-card,
+.filters-card,
+.form-container,
+.details-box {
+  border-color: #D7EAE3;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(22, 53, 53, 0.06);
+}
+
+.opportunity-card:hover,
+.category-card:hover {
+  border-color: var(--tropical-teal);
+}
+
+.category-card {
+  border-radius: 8px;
+}
+
+.category-icon {
+  color: var(--dark-teal);
+}
+
+.category-pill,
+.resource-badge {
+  background: var(--frosted-mint);
+  color: var(--dark-teal);
+}
+
+.card-org {
+  color: var(--dark-teal);
+}
+
+.form-control:focus {
+  border-color: var(--teal);
+  outline: 2px solid rgba(23, 190, 187, 0.22);
+}
+
+.details-meta-grid {
+  background: #EFF9F4;
+}
+
+.site-footer {
+  background: var(--dark-teal);
+  border-color: var(--dark-teal);
+  color: var(--frosted-mint);
+}
+
+.footer-bottom {
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--light-aqua);
+}
+
+.site-footer a {
+  color: var(--light-aqua) !important;
+}
+
+.scam-banner {
+  background: var(--frosted-mint);
+  border-color: var(--light-aqua);
+  color: var(--dark-text);
+}
+
+.scam-banner i,
+.status-icon {
+  color: var(--dark-teal);
+}
+
+.applicant-warning-tab,
+.applicant-warning-close {
+  background: var(--dark-teal);
+  border-color: var(--dark-teal);
+}
+
+.applicant-warning-panel {
+  border-top-color: var(--tropical-teal);
+}
+
+.applicant-warning-panel h2 {
+  color: var(--dark-teal);
+}
+
+@media (max-width: 639px) {
+  .hero-card {
+    padding: 3rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-search-form,
+  .hero-search-field,
+  .hero-search-form .btn {
+    width: 100%;
+  }
+
+  .hero-search-form .btn {
+    min-height: 48px;
+  }
+
+  .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.page-intro {
+  margin-bottom: 1.5rem;
+}
+
+.page-intro .section-title {
+  font-size: 2rem;
+}
+
+.page-intro-centered {
+  text-align: center;
+}
+
+.home-section {
+  margin-bottom: 2.5rem;
+}
+
+.filters-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.filters-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.9rem;
+}
+
+.filters-footer #results-count {
+  color: var(--dark-text);
+}
+
+.sample-notice {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--teal);
+  border-radius: 0 6px 6px 0;
+  background: var(--frosted-mint);
+  color: var(--dark-text);
+  font-size: 0.9rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.benefit-card {
+  padding: 1.25rem;
+  border: 1px solid #D7EAE3;
+  border-top: 3px solid var(--pearl-aqua);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.benefit-card > span {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--dark-teal);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.benefit-card h3 {
+  margin-bottom: 0.4rem;
+  color: var(--dark-text);
+  font-size: 1rem;
+}
+
+.benefit-card p,
+.home-cta p {
+  color: var(--gray-700);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.home-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 2rem;
+  padding: 1.75rem;
+  border-radius: 8px;
+  background: var(--dark-teal);
+  color: var(--white);
+}
+
+.home-cta h2 {
+  margin-bottom: 0.35rem;
+  font-size: 1.45rem;
+}
+
+.home-cta p {
+  color: var(--frosted-mint);
+}
+
+.home-cta .btn-light {
+  flex: 0 0 auto;
+  background: var(--frosted-mint);
+  color: var(--dark-teal);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.form-actions .btn-primary {
+  flex: 1 1 12rem;
+}
+
+.contact-info {
+  max-width: 650px;
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  font-size: 0.9rem;
+}
+
+.contact-info h2 {
+  margin-bottom: 0.65rem;
+  color: var(--dark-teal);
+  font-size: 1.15rem;
+}
+
+.contact-info p + p {
+  margin-top: 0.75rem;
+}
+
+.contact-info a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--dark-teal);
+  font-weight: 700;
+}
+
+.application-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.resource-guide-grid {
+  grid-template-columns: 1fr;
+}
+
+.resource-card-safety {
+  border-left: 4px solid var(--red-600);
+}
+
+.resource-badge-safety {
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+.before-applying {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-left: 4px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  background: var(--frosted-mint);
+}
+
+.before-applying h2 {
+  margin-bottom: 0.75rem;
+  color: var(--dark-teal);
+  font-size: 1.25rem;
+}
+
+.before-applying .resource-list {
+  color: var(--dark-text);
+}
+
+.apply-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.footer-intro {
+  max-width: 450px;
+}
+
+.footer-heading {
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.footer-subheading {
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  list-style: none;
+  line-height: 1.8;
+}
+
+.footer-bottom p + p {
+  margin-top: 0.5rem;
+}
+
+.btn-compact {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .filters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+
+  .filters-grid {
+    grid-template-columns: 2fr repeat(4, minmax(0, 1fr));
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .filters-footer,
+  .home-cta {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .home-cta .btn-light {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Career Resources | Youth Opportunities Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -59,6 +59,7 @@
         class="mobile-nav-toggle"
         aria-label="Toggle navigation drawer"
         aria-expanded="false"
+        aria-controls="mobile-drawer"
         type="button"
       >
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
@@ -96,10 +97,10 @@
   <!-- Main Content -->
   <main id="main-content" class="main-layout">
 
-    <div style="margin-bottom: 2rem;">
+    <div class="page-intro">
 
-      <h1 class="section-title" style="font-size: 2rem;">
-        Youth Career Readiness Guide
+      <h1 class="section-title">
+        Career Resources
       </h1>
 
       <p class="section-subtitle">
@@ -109,7 +110,7 @@
 
     </div>
 
-    <div class="resources-grid" style="grid-template-columns: 1fr;">
+    <div class="resources-grid resource-guide-grid">
 
       <!-- CV Section -->
       <article id="cv-section" class="resource-card">
@@ -265,13 +266,11 @@
       <!-- Employment Scams Section -->
       <article
         id="scam-section"
-        class="resource-card"
-        style="border-left: 4px solid var(--red-600);"
+        class="resource-card resource-card-safety"
       >
 
         <span
-          class="resource-badge"
-          style="background-color: #fee2e2; color: #991b1b;"
+          class="resource-badge resource-badge-safety"
         >
           EMPLOYMENT SCAMS
         </span>
@@ -419,7 +418,50 @@
 
       </article>
 
+      <article class="resource-card">
+        <span class="resource-badge">DIGITAL SKILLS</span>
+        <h2 class="resource-title">Build Everyday Digital Skills</h2>
+        <p class="resource-desc">Practise email, online research, document editing, spreadsheets, and safe account management.</p>
+        <p><strong>Helpful tip:</strong> Create a small project, such as a budget spreadsheet, to show what you can do.</p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-badge">CAREER PLANNING</span>
+        <h2 class="resource-title">Plan Your Next Step</h2>
+        <p class="resource-desc">Explore roles that match your interests and compare the skills or qualifications they require.</p>
+        <p><strong>Helpful tip:</strong> Choose one achievable learning goal for the next month.</p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-badge">JOB SEARCH</span>
+        <h2 class="resource-title">Make Your Job Search Focused</h2>
+        <p class="resource-desc">Track applications, closing dates, contacts, and follow-up actions in one simple list.</p>
+        <p><strong>Helpful tip:</strong> Tailor your CV to the requirements of each opportunity.</p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-badge">ONLINE LEARNING</span>
+        <h2 class="resource-title">Choose an Online Course</h2>
+        <p class="resource-desc">Compare course outcomes, time commitments, costs, and whether a recognised certificate is included.</p>
+        <p><strong>Helpful tip:</strong> Try free lessons first and never pay an unverified person to enrol you.</p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </article>
+
     </div>
+
+    <section class="before-applying" aria-labelledby="before-applying-title">
+      <h2 id="before-applying-title">Before applying</h2>
+      <ul class="resource-list">
+        <li>Check the closing date.</li>
+        <li>Read the requirements carefully.</li>
+        <li>Prepare and proofread your CV.</li>
+        <li>Check which documents are required.</li>
+        <li>Never pay someone to apply for an opportunity.</li>
+      </ul>
+    </section>
 
   </main>
 
@@ -431,9 +473,7 @@
 
       <div>
 
-        <h3
-          style="color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;"
-        >
+        <h3 class="footer-heading">
           Youth Opportunities Portal
         </h3>
 

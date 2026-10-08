@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact & Report | Youth Opportunities Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
@@ -35,7 +35,7 @@
         </ul>
       </nav>
 
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false" aria-controls="mobile-drawer">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
@@ -54,28 +54,28 @@
 
   <main id="main-content" class="main-layout">
 
-    <div style="margin-bottom: 2rem; text-align: center;">
-      <h1 class="section-title" style="font-size: 2rem;">Contact & Report Portal</h1>
-      <p class="section-subtitle">Help us maintain a clean portal by reporting expired posts or submitting feedback.</p>
+    <div class="page-intro page-intro-centered">
+      <h1 class="section-title">Contact Us</h1>
+      <p class="section-subtitle">Send feedback or report a sample listing that needs attention.</p>
     </div>
 
     <div class="form-container">
       <div id="form-error" class="alert alert-danger" role="alert"></div>
-      <div id="form-success" class="alert alert-success" role="alert"></div>
+      <div id="form-success" class="alert alert-success" role="status" aria-live="polite"></div>
 
       <form id="contact-form" novalidate>
-        <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="contact-name" class="form-label">Full Name *</label>
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Full Name</label>
           <input type="text" id="contact-name" class="form-control" placeholder="e.g. Thabo Mokoena" required />
         </div>
 
-        <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="contact-email" class="form-label">Email Address *</label>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email Address</label>
           <input type="email" id="contact-email" class="form-control" placeholder="e.g. thabo@example.co.za" required />
         </div>
 
-        <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="contact-subject" class="form-label">Reason / Inquiry Type *</label>
+        <div class="form-group">
+          <label for="contact-subject" class="form-label">Subject</label>
           <select id="contact-subject" class="form-control" required>
             <option value="">-- Select Inquiry Reason --</option>
             <option value="report-expired">Report Expired Opportunity</option>
@@ -85,26 +85,36 @@
           </select>
         </div>
 
-        <div class="form-group" style="margin-bottom: 1rem;">
+        <div class="form-group">
           <label for="contact-opp-name" class="form-label">Opportunity Name (Optional)</label>
           <input type="text" id="contact-opp-name" class="form-control" placeholder="Name of listing being reported" />
         </div>
 
-        <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label for="contact-message" class="form-label">Detailed Message *</label>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message</label>
           <textarea id="contact-message" rows="5" class="form-control" placeholder="Provide full details regarding your inquiry or report..." required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message</button>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="reset" class="btn btn-outline">Clear</button>
+        </div>
       </form>
     </div>
+
+    <aside class="contact-info" aria-labelledby="contact-info-title">
+      <h2 id="contact-info-title">Contact information</h2>
+      <p>This student demonstration portal does not have a live support inbox. Use the form to preview validation and confirmation states; no message is sent to a server.</p>
+      <p><strong>Opportunity safety:</strong> Never pay to apply. Verify every listing with the organisation through an official channel.</p>
+      <a href="resources.html#scam-section">Read the safety guidance</a>
+    </aside>
 
   </main>
 
   <footer class="site-footer">
     <div class="footer-container">
       <div>
-        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem;">Youth Opportunities Portal</h3>
+        <h3 class="footer-heading">Youth Opportunities Portal</h3>
         <p>Contact the portal team with questions, feedback, or reports about opportunity listings.</p>
       </div>
     </div>

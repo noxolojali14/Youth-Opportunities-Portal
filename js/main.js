@@ -51,7 +51,7 @@
   }
 
   async function loadOpportunityData() {
-    const response = await fetch(DATA_PATH);
+    const response = await fetch(DATA_PATH, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`Opportunity data could not be loaded (HTTP ${response.status}).`);
     }
@@ -125,9 +125,10 @@
               <li>${escapeHtml(opportunity.location)}</li>
               ${opportunity.closingDate ? `<li>Closes ${escapeHtml(formatDate(opportunity.closingDate))}</li>` : ""}
             </ul>
+            <p class="card-desc">${escapeHtml(opportunity.description || "Description not specified.")}</p>
           </div>
-          <a class="btn btn-outline" href="opportunities.html?search=${encodeURIComponent(opportunity.title)}">
-            View Opportunity
+          <a class="btn btn-outline" href="details.html?id=${encodeURIComponent(opportunity.id)}">
+            View Details
           </a>
         </article>`;
     }).join("");
@@ -141,8 +142,8 @@
         console.error("Unable to display featured opportunities:", error);
         showStatus(
           grid,
-          "Opportunities are temporarily unavailable",
-          "The opportunity list could not be loaded. Please check that Live Server is running from the project folder and try again.",
+          "Sorry, we couldn't load the opportunities right now.",
+          "Please try again later.",
           true
         );
       });

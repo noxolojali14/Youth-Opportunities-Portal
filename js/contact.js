@@ -47,6 +47,13 @@
     });
   });
 
+  form.addEventListener("reset", function () {
+    hideMessages();
+    requiredFields.forEach(function (field) {
+      field.removeAttribute("aria-invalid");
+    });
+  });
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     hideMessages();
@@ -70,9 +77,10 @@
       return;
     }
 
-    successMessage.textContent =
-      "Thank you. Your form passed validation. This demonstration website does not send messages to a server.";
+    successMessage.textContent = "Thank you! Your message has been received.";
     successMessage.style.display = "block";
     form.reset();
+    successMessage.textContent = "Thank you! Your message has been received.";
+    successMessage.style.display = "block";
   });
 }());
