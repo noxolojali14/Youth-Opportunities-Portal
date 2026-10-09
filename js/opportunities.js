@@ -10,8 +10,7 @@
   }
 
   function getValidApplicationUrl(opportunity) {
-    if (opportunity.sample
-      || (opportunity.closingDate && opportunity.closingDate < helpers.getToday())
+    if ((opportunity.closingDate && opportunity.closingDate < helpers.getToday())
       || typeof opportunity.applicationLink !== "string") {
       return null;
     }
@@ -32,14 +31,27 @@
   function renderApplicationAction(opportunity) {
     const url = getValidApplicationUrl(opportunity);
     if (url) {
-      return `<a class="btn btn-primary apply-button" href="${helpers.escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Apply Now</a>`;
+      return `<a class="btn btn-primary apply-button" href="${helpers.escapeHtml(url)}" target="_blank" rel="noopener noreferrer">View Official Listing</a>`;
     }
 
-    const message = opportunity.sample
-      ? "Fictional demonstration listing — there is no real application link."
-      : "Application link currently unavailable.";
-    return `<div class="application-action"><button class="btn btn-primary apply-button" type="button" disabled aria-describedby="application-note">Apply Now</button><p class="application-unavailable" id="application-note" role="note">${helpers.escapeHtml(message)}</p></div>`;
+    const message = opportunity.closingDate && opportunity.closingDate < helpers.getToday()
+      ? "This opportunity has expired and is not accepting applications."
+      : "Official listing link currently unavailable.";
+    const noteId = `application-note-${helpers.escapeHtml(opportunity.id)}`;
+    return `<div class="application-action"><button class="btn btn-primary apply-button" type="button" data-application-toggle aria-expanded="false" aria-controls="${noteId}">Listing Status</button><p class="application-unavailable" id="${noteId}" role="status" hidden>${helpers.escapeHtml(message)}</p></div>`;
   }
+
+  document.addEventListener("click", function (event) {
+    const button = event.target.closest("[data-application-toggle]");
+    if (!button) return;
+
+    const note = document.getElementById(button.getAttribute("aria-controls"));
+    if (!note) return;
+
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!isExpanded));
+    note.hidden = isExpanded;
+  });
 
   function renderOpportunityCard(opportunity) {
     const detailsUrl = `details.html?id=${encodeURIComponent(opportunity.id)}`;
@@ -53,7 +65,6 @@
         <div>
           <div class="card-top">
             <span class="category-pill">${helpers.escapeHtml(opportunity.category)}</span>
-            ${opportunity.sample ? '<span class="demo-tag">DEMO LISTING</span>' : ""}
           </div>
           <h2 class="card-title">${helpers.escapeHtml(opportunity.title)}</h2>
           <p class="card-org">${helpers.escapeHtml(opportunity.organisation)}</p>
@@ -62,6 +73,7 @@
             <li><strong>Closes:</strong> ${helpers.escapeHtml(closingDate)}</li>
             <li><strong>Experience:</strong> ${helpers.escapeHtml(opportunity.experience || "Not specified")}</li>
             <li><strong>Updated:</strong> ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</li>
+            <li><strong>Source verified:</strong> ${helpers.escapeHtml(helpers.formatDate(opportunity.verifiedAt))}</li>
           </ul>
           <p class="card-desc">${helpers.escapeHtml(description)}</p>
         </div>
@@ -140,22 +152,28 @@
       ? opportunity.documents
       : (opportunity.documents ? [opportunity.documents] : []);
     const isExpired = opportunity.closingDate && opportunity.closingDate < helpers.getToday();
+    const responsibilities = Array.isArray(opportunity.responsibilities)
+      ? opportunity.responsibilities
+      : [];
     const listItems = documents.length
       ? documents.map(function (item) {
         return `<li>${helpers.escapeHtml(item)}</li>`;
       }).join("")
       : "<li>Not specified</li>";
+    const responsibilityItems = responsibilities.map(function (item) {
+      return `<li>${helpers.escapeHtml(item)}</li>`;
+    }).join("");
 
     details.innerHTML = `
       <article class="details-box">
         <header class="details-header">
           <div class="card-top">
             <span class="category-pill">${helpers.escapeHtml(opportunity.category)}</span>
-            ${opportunity.sample ? '<span class="demo-tag">FICTIONAL DEMONSTRATION LISTING</span>' : ""}
           </div>
           <h1 class="section-title">${helpers.escapeHtml(opportunity.title)}</h1>
           <p class="card-org">${helpers.escapeHtml(opportunity.organisation)}</p>
           <p class="card-updated">Last updated ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</p>
+          <p class="card-updated">Source verified ${helpers.escapeHtml(helpers.formatDate(opportunity.verifiedAt))}: ${helpers.escapeHtml(opportunity.sourceName || "Official employer source")}</p>
         </header>
         <dl class="details-meta-grid">
           <div><dt>Location</dt><dd>${helpers.escapeHtml(opportunity.location || "Not specified")}</dd></div>
@@ -167,6 +185,9 @@
           <h2 class="details-section-title">About this opportunity</h2>
           <p>${helpers.escapeHtml(opportunity.description || "Not specified.")}</p>
         </section>
+        ${responsibilityItems
+          ? `<section><h2 class="details-section-title">Key responsibilities</h2><ul>${responsibilityItems}</ul></section>`
+          : ""}
         <section>
           <h2 class="details-section-title">Requirements and qualifications</h2>
           <p>${helpers.escapeHtml(opportunity.qualification || "Not specified.")}</p>
@@ -175,9 +196,6 @@
           <h2 class="details-section-title">Documents</h2>
           <ul>${listItems}</ul>
         </section>
-        ${opportunity.sample
-          ? '<p class="demo-disclaimer">Fictional demonstration content. This is not a real vacancy or application.</p>'
-          : ""}
         <div class="opportunity-actions">
           ${renderApplicationAction(opportunity)}
           <a class="btn btn-outline" href="opportunities.html">Back to opportunities</a>
@@ -253,7 +271,7 @@
         helpers.showStatus(
           details,
           "Opportunity details are temporarily unavailable",
-          "The sample listings could not be loaded. Please check that Live Server is running from the project folder and try again.",
+          "The opportunity listings could not be loaded. Please check that Live Server is running from the project folder and try again.",
           true
         );
       });

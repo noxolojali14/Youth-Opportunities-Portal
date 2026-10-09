@@ -12,13 +12,6 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Safety Warning -->
-  <aside class="scam-banner" aria-label="Security Alert">
-    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-    <strong>Safety Warning:</strong>
-    Youth Opportunities are 100% FREE. Never pay money to apply.
-  </aside>
-
   <!-- Header and Navigation -->
   <header class="site-header">
     <div class="nav-container">
@@ -496,6 +489,17 @@
 
   </footer>
 
+  <aside class="applicant-warning" aria-label="Important applicant information">
+    <button class="applicant-warning-tab" id="applicant-warning-toggle" type="button" aria-label="Open important applicant warning" aria-expanded="false" aria-controls="applicant-warning-panel">
+      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+      <span>Important</span>
+    </button>
+    <section class="applicant-warning-panel" id="applicant-warning-panel" aria-labelledby="applicant-warning-title" hidden>
+      <h2 id="applicant-warning-title">Important applicant notice</h2>
+      <p>Verify the closing date and application instructions on the official employer listing before sharing personal information. Applications are free; never pay fees to apply.</p>
+      <button class="applicant-warning-close" type="button">Close</button>
+    </section>
+  </aside>
 
   <!-- JavaScript -->
   <script src="../js/main.js"></script>

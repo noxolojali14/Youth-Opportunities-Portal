@@ -3,8 +3,6 @@
   Color Palette: Teal and mint, with accessible dark-text contrast
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap");
-
 :root {
   --dark-teal: #0E7C7B;
   --teal: #118D8B;
@@ -29,14 +27,11 @@
   --gray-300: #cbd5e1;
   --gray-600: #475569;
   --gray-700: #334155;
-  --amber-bg: #fffbeb;
-  --amber-border: #fcd34d;
-  --amber-text: #78350f;
   --red-600: #dc2626;
   --green-600: #16a34a;
   
-  --font-main: "DM Sans", sans-serif;
-  --font-display: "Sora", "DM Sans", sans-serif;
+  --font-main: Arial, sans-serif;
+  --font-display: Arial, sans-serif;
   --max-width: 1200px;
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -201,22 +196,6 @@ textarea:focus-visible {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-}
-
-/* --- Banners --- */
-.scam-banner {
-  background-color: #fef3c7;
-  color: #92400e;
-  border-bottom: 1px solid var(--amber-border);
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.scam-banner i {
-  color: var(--primary);
-  margin-right: 0.25rem;
 }
 
 /* --- Navigation Header --- */
@@ -1123,9 +1102,31 @@ textarea:focus-visible {
   padding: 4.5rem 1.25rem;
 }
 
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-image {
+  display: block;
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  justify-self: end;
 }
 
 .hero-title {
@@ -1237,13 +1238,6 @@ textarea:focus-visible {
   color: var(--light-aqua) !important;
 }
 
-.scam-banner {
-  background: var(--frosted-mint);
-  border-color: var(--light-aqua);
-  color: var(--dark-text);
-}
-
-.scam-banner i,
 .status-icon {
   color: var(--dark-teal);
 }
@@ -1285,6 +1279,18 @@ textarea:focus-visible {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.75rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-image {
+    width: min(100%, 420px);
+    justify-self: center;
   }
 }
 
