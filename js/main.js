@@ -89,20 +89,18 @@
     });
   }
 
-  function renderFeatured(opportunities) {
-    const grid = document.getElementById("featured-grid");
-    if (!grid) {
-      return;
-    }
+  function getOpenOpportunities(opportunities) {
+    const today = getToday();
+    return opportunities.filter(function (opportunity) {
+      return !opportunity.closingDate || opportunity.closingDate >= today;
+    });
+  }
 
+  function renderFeatured(grid, opportunities) {
     const featured = opportunities
-      .filter(function (opportunity) {
-        return !opportunity.closingDate || opportunity.closingDate >= getToday();
-      })
+      .slice()
       .sort(function (first, second) {
-        if (!first.closingDate) return 1;
-        if (!second.closingDate) return -1;
-        return first.closingDate.localeCompare(second.closingDate);
+        return (second.updated || "").localeCompare(first.updated || "");
       })
       .slice(0, 3);
 
@@ -117,7 +115,7 @@
           <div>
             <div class="card-top">
               <span class="category-pill">${escapeHtml(opportunity.category)}</span>
-              ${opportunity.sample ? '<span class="demo-tag">DEMO LISTING</span>' : ""}
+              ${opportunity.sample ? '<span class="demo-tag">SAMPLE LISTING</span>' : ""}
             </div>
             <h3 class="card-title">${escapeHtml(opportunity.title)}</h3>
             <p class="card-org">${escapeHtml(opportunity.organisation)}</p>
@@ -134,10 +132,57 @@
     }).join("");
   }
 
-  function loadFeatured(grid) {
+  function renderDeadlines(list, opportunities) {
+    const upcoming = opportunities
+      .filter(function (opportunity) {
+        return opportunity.closingDate;
+      })
+      .sort(function (first, second) {
+        return first.closingDate.localeCompare(second.closingDate);
+      })
+      .slice(0, 5);
+
+    if (upcoming.length === 0) {
+      list.innerHTML = '<li class="deadline-empty">No upcoming deadlines right now.</li>';
+      return;
+    }
+
+    list.innerHTML = upcoming.map(function (opportunity) {
+      return `
+        <li>
+          <a href="details.html?id=${encodeURIComponent(opportunity.id)}">${escapeHtml(opportunity.title)}</a>
+          <span>${escapeHtml(opportunity.organisation)}</span>
+          <time datetime="${escapeHtml(opportunity.closingDate)}">Closes ${escapeHtml(formatDate(opportunity.closingDate))}</time>
+        </li>`;
+    }).join("");
+  }
+
+  function renderStats(opportunities) {
+    const stats = {
+      "stat-listings": opportunities.length,
+      "stat-categories": new Set(opportunities.map(function (item) { return item.category; })).size,
+      "stat-locations": new Set(opportunities.map(function (item) { return item.location; })).size
+    };
+    Object.keys(stats).forEach(function (id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = String(stats[id]);
+      }
+    });
+  }
+
+  function loadHomepage(grid) {
+    const deadlines = document.getElementById("deadlines-list");
     showStatus(grid, "Loading opportunities...", "Please wait while the opportunity list is loaded.", false);
     loadOpportunityData()
-      .then(renderFeatured)
+      .then(function (data) {
+        const open = getOpenOpportunities(data);
+        renderFeatured(grid, open);
+        renderStats(open);
+        if (deadlines) {
+          renderDeadlines(deadlines, open);
+        }
+      })
       .catch(function (error) {
         console.error("Unable to display featured opportunities:", error);
         showStatus(
@@ -146,6 +191,9 @@
           "Please try again later.",
           true
         );
+        if (deadlines) {
+          deadlines.innerHTML = '<li class="deadline-empty">Deadlines are unavailable right now.</li>';
+        }
       });
   }
 
@@ -214,6 +262,6 @@
 
   const featuredGrid = document.getElementById("featured-grid");
   if (featuredGrid) {
-    loadFeatured(featuredGrid);
+    loadHomepage(featuredGrid);
   }
 }());

@@ -9,12 +9,17 @@
     "experience": "No experience required",
     "description": "Two Office Aid posts at the Sasolburg and Kuruman Labour Centres. Duties include office cleaning, food services assistance, stock distribution and messenger functions.",
     "qualification": "Standard 8 / Grade 10. The advert states no experience is required.",
-    "documents": ["Completed and signed Z83 application form", "Updated CV"],
+    "documents": [
+      "Completed and signed Z83 application form",
+      "Updated CV"
+    ],
     "applicationLink": "https://www.labour.gov.za/office-aid-(x2-posts)-(4)",
     "sourceName": "Department of Employment and Labour vacancy notice",
     "sourceUrl": "https://www.labour.gov.za/office-aid-(x2-posts)-(4)",
     "verifiedAt": "2026-10-08",
-    "updated": "2026-10-08"
+    "updated": "2026-10-08",
+    "eligibility": "Open to South African citizens who meet the minimum requirements in the official vacancy notice.",
+    "applicationInstructions": "Open the official vacancy notice and follow the application method it describes. Submit all required documents before the closing date. Late or incomplete applications are usually not considered."
   },
   {
     "id": "dol-office-aid-east-london-2026",
@@ -26,12 +31,17 @@
     "experience": "No experience required",
     "description": "Office support role at the Department's East London Provincial Office. Duties include maintaining a clean office, providing food services assistance, distributing stock and messenger functions.",
     "qualification": "Standard 8 / Grade 10. The advert states no experience is required.",
-    "documents": ["Completed and signed Z83 application form", "Updated CV"],
+    "documents": [
+      "Completed and signed Z83 application form",
+      "Updated CV"
+    ],
     "applicationLink": "https://www.labour.gov.za/office-aid-it-and-office-services",
     "sourceName": "Department of Employment and Labour vacancy notice",
     "sourceUrl": "https://www.labour.gov.za/office-aid-it-and-office-services",
     "verifiedAt": "2026-10-08",
-    "updated": "2026-10-08"
+    "updated": "2026-10-08",
+    "eligibility": "Open to South African citizens who meet the minimum requirements in the official vacancy notice.",
+    "applicationInstructions": "Open the official vacancy notice and follow the application method it describes. Submit all required documents before the closing date. Late or incomplete applications are usually not considered."
   },
   {
     "id": "dol-human-resource-clerk-2026",
@@ -43,12 +53,17 @@
     "experience": "No experience required",
     "description": "Three-year contract at the Northern Cape Provincial Office. Duties include recruitment and selection administration, conditions-of-service administration, performance management support and responding to HR enquiries.",
     "qualification": "Grade 12 or equivalent. The advert states no experience is required; computer literacy and communication skills are listed.",
-    "documents": ["Completed and signed Z83 application form", "Updated CV"],
+    "documents": [
+      "Completed and signed Z83 application form",
+      "Updated CV"
+    ],
     "applicationLink": "https://www.labour.gov.za/human-resource-clerk-human-resource-management-(3)",
     "sourceName": "Department of Employment and Labour vacancy notice",
     "sourceUrl": "https://www.labour.gov.za/human-resource-clerk-human-resource-management-(3)",
     "verifiedAt": "2026-10-08",
-    "updated": "2026-10-08"
+    "updated": "2026-10-08",
+    "eligibility": "Open to South African citizens who meet the minimum requirements in the official vacancy notice.",
+    "applicationInstructions": "Open the official vacancy notice and follow the application method it describes. Submit all required documents before the closing date. Late or incomplete applications are usually not considered."
   },
   {
     "id": "dol-registry-clerk-limpopo-2026",
@@ -60,12 +75,17 @@
     "experience": "No experience required",
     "description": "Three-year contract at the Limpopo Provincial Office. Duties include registry counter services, handling correspondence, filing, records management and preparing documents for archiving or disposal.",
     "qualification": "Grade 12 or equivalent. The advert states no experience is required; computer literacy and communication skills are listed.",
-    "documents": ["Completed and signed Z83 application form", "Updated CV"],
+    "documents": [
+      "Completed and signed Z83 application form",
+      "Updated CV"
+    ],
     "applicationLink": "https://www.labour.gov.za/registry-clerk-(11)",
     "sourceName": "Department of Employment and Labour vacancy notice",
     "sourceUrl": "https://www.labour.gov.za/registry-clerk-(11)",
     "verifiedAt": "2026-10-08",
-    "updated": "2026-10-08"
+    "updated": "2026-10-08",
+    "eligibility": "Open to South African citizens who meet the minimum requirements in the official vacancy notice.",
+    "applicationInstructions": "Open the official vacancy notice and follow the application method it describes. Submit all required documents before the closing date. Late or incomplete applications are usually not considered."
   },
   {
     "id": "dol-administrative-clerk-kimberley-2026",
@@ -77,11 +97,99 @@
     "experience": "Not specified",
     "description": "Administrative support role at the Kimberley Labour Centre, supporting document control, supply chain management and human resource services.",
     "qualification": "Matric / Grade 12 / Senior Certificate. The advert lists administrative procedures, filing, data capture and computer literacy; it does not specify an experience requirement.",
-    "documents": ["Completed and signed Z83 application form", "Updated CV"],
+    "documents": [
+      "Completed and signed Z83 application form",
+      "Updated CV"
+    ],
     "applicationLink": "https://www.labour.gov.za/administrative-clerk-support-services-ies-(3)",
     "sourceName": "Department of Employment and Labour vacancy notice",
     "sourceUrl": "https://www.labour.gov.za/administrative-clerk-support-services-ies-(3)",
     "verifiedAt": "2026-10-08",
-    "updated": "2026-10-08"
+    "updated": "2026-10-08",
+    "eligibility": "Open to South African citizens who meet the minimum requirements in the official vacancy notice.",
+    "applicationInstructions": "Open the official vacancy notice and follow the application method it describes. Submit all required documents before the closing date. Late or incomplete applications are usually not considered."
+  },
+  {
+    "id": "sample-it-support-internship",
+    "title": "IT Support Internship",
+    "organisation": "Sample Tech Academy (fictional)",
+    "category": "Internship",
+    "location": "Cape Town",
+    "closingDate": "2026-11-30",
+    "experience": "Entry level",
+    "description": "A 12-month internship supporting desktop users, setting up devices and logging helpdesk tickets.",
+    "qualification": "Matric plus a completed or in-progress IT certificate or diploma.",
+    "eligibility": "South African citizens aged 18 to 35 who are not currently employed.",
+    "documents": [
+      "Updated CV",
+      "Certified copy of ID",
+      "Copy of qualifications"
+    ],
+    "applicationInstructions": "This is a sample listing for demonstration purposes only. Real listings link to the employer's official application page.",
+    "applicationLink": null,
+    "sample": true,
+    "updated": "2026-10-12"
+  },
+  {
+    "id": "sample-retail-learnership",
+    "title": "Retail Operations Learnership (NQF 2)",
+    "organisation": "Sample Retail Group (fictional)",
+    "category": "Learnership",
+    "location": "Johannesburg",
+    "closingDate": "2026-12-15",
+    "experience": "No experience required",
+    "description": "A 12-month learnership combining classroom training with in-store experience in customer service and stock control.",
+    "qualification": "Grade 10 or higher.",
+    "eligibility": "Unemployed youth aged 18 to 35. A monthly stipend is paid.",
+    "documents": [
+      "Updated CV",
+      "Certified copy of ID",
+      "Grade 10 or Matric results"
+    ],
+    "applicationInstructions": "This is a sample listing for demonstration purposes only. Real listings link to the employer's official application page.",
+    "applicationLink": null,
+    "sample": true,
+    "updated": "2026-10-12"
+  },
+  {
+    "id": "sample-engineering-bursary",
+    "title": "Engineering Bursary 2027",
+    "organisation": "Sample Foundation (fictional)",
+    "category": "Bursary",
+    "location": "Durban",
+    "closingDate": "2027-01-31",
+    "experience": "Student",
+    "description": "Full-cost bursary covering tuition, accommodation and books for engineering students at a public university.",
+    "qualification": "Matric with at least 60% in Mathematics and Physical Sciences, or current enrolment in an engineering degree.",
+    "eligibility": "South African citizens with a household income below R350 000 per year.",
+    "documents": [
+      "Academic record",
+      "Certified copy of ID",
+      "Proof of household income",
+      "Motivational letter"
+    ],
+    "applicationInstructions": "This is a sample listing for demonstration purposes only. Real listings link to the funder's official application page.",
+    "applicationLink": null,
+    "sample": true,
+    "updated": "2026-10-12"
+  },
+  {
+    "id": "sample-digital-skills-course",
+    "title": "Free Digital Skills Short Course",
+    "organisation": "Sample Skills Hub (fictional)",
+    "category": "Course",
+    "location": "Remote",
+    "closingDate": "2027-02-28",
+    "experience": "No experience required",
+    "description": "A 6-week online course covering email, spreadsheets, online safety and basic web research.",
+    "qualification": "No formal qualification required. Access to a smartphone or computer is needed.",
+    "eligibility": "Open to anyone aged 16 to 35.",
+    "documents": [
+      "Valid email address"
+    ],
+    "applicationInstructions": "This is a sample listing for demonstration purposes only. Real listings link to the provider's official application page.",
+    "applicationLink": null,
+    "sample": true,
+    "updated": "2026-10-12"
   }
 ]

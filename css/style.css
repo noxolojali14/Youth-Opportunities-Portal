@@ -1339,36 +1339,6 @@ textarea:focus-visible {
   font-size: 0.9rem;
 }
 
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.benefit-card {
-  padding: 1.25rem;
-  border: 1px solid #D7EAE3;
-  border-top: 3px solid var(--pearl-aqua);
-  border-radius: 8px;
-  background: var(--white);
-}
-
-.benefit-card > span {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  color: var(--dark-teal);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.benefit-card h3 {
-  margin-bottom: 0.4rem;
-  color: var(--dark-text);
-  font-size: 1rem;
-}
-
-.benefit-card p,
 .home-cta p {
   color: var(--gray-700);
   font-size: 0.9rem;
@@ -1517,10 +1487,6 @@ textarea:focus-visible {
   .filters-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .benefits-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 992px) {
@@ -1529,11 +1495,7 @@ textarea:focus-visible {
   }
 
   .filters-grid {
-    grid-template-columns: 2fr repeat(4, minmax(0, 1fr));
-  }
-
-  .benefits-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1559,6 +1521,39 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
-.about-cta {
-  margin-top: 2rem;
+.deadlines-list {
+  list-style: none;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+}
+
+.deadlines-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding: 0.85rem 1.25rem;
+}
+
+.deadlines-list li + li {
+  border-top: 1px solid var(--gray-200);
+}
+
+.deadlines-list a {
+  flex: 1 1 14rem;
+  color: var(--dark-teal);
+  font-weight: 700;
+}
+
+.deadlines-list span {
+  flex: 1 1 12rem;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+}
+
+.deadlines-list time {
+  color: var(--dark-text);
+  font-size: 0.9rem;
+  font-weight: 600;
 }

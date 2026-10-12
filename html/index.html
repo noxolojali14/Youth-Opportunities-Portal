@@ -77,16 +77,16 @@
 
       <div class="hero-stats" aria-label="Portal overview">
         <div class="hero-stat">
-          <strong>5</strong>
-          <span>Verified listings</span>
+          <strong id="stat-listings">&ndash;</strong>
+          <span>Open listings</span>
         </div>
         <div class="hero-stat">
-          <strong>1</strong>
+          <strong id="stat-categories">&ndash;</strong>
           <span>Opportunity categories</span>
         </div>
         <div class="hero-stat">
-          <strong>4</strong>
-          <span>Provinces represented</span>
+          <strong id="stat-locations">&ndash;</strong>
+          <span>Locations</span>
         </div>
       </div>
       <p class="hero-sample-note">Official vacancy postings checked 8 October 2026. Confirm details with the employer before applying.</p>
@@ -147,12 +147,23 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">Featured Opportunities</h2>
-          <p class="section-subtitle">Current listings with upcoming closing dates</p>
+          <p class="section-subtitle">Recently added and updated listings</p>
         </div>
         <a href="opportunities.html" class="btn btn-outline">View All Opportunities <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
 
       <div id="featured-grid" class="opportunities-grid"></div>
+    </section>
+
+
+    <section class="home-section" aria-labelledby="deadlines-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="deadlines-title">Upcoming Deadlines</h2>
+          <p class="section-subtitle">Apply before these opportunities close</p>
+        </div>
+      </div>
+      <ul id="deadlines-list" class="deadlines-list"></ul>
     </section>
 
     <!-- CAREER READINESS SECTION -->
@@ -187,21 +198,6 @@
           <p class="resource-desc">Learn key warning signs to protect yourself from fake employment and training scams.</p>
           <a href="resources.html#scam-section" class="btn btn-outline btn-compact">Read Guide</a>
         </div>
-      </div>
-    </section>
-
-    <section class="home-section" aria-labelledby="why-title">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title" id="why-title">Why use Youth Opportunities Portal?</h2>
-          <p class="section-subtitle">A clear starting point for your next step.</p>
-        </div>
-      </div>
-      <div class="benefits-grid">
-        <article class="benefit-card"><span aria-hidden="true">⌕</span><h3>Easy to Search</h3><p>Find listings by keyword, category, location, and closing date.</p></article>
-        <article class="benefit-card"><span aria-hidden="true">◎</span><h3>Youth Focused</h3><p>Explore entry-level opportunities and learning paths in one place.</p></article>
-        <article class="benefit-card"><span aria-hidden="true">✓</span><h3>Clear Information</h3><p>See requirements, dates, and documents before you plan an application.</p></article>
-        <article class="benefit-card"><span aria-hidden="true">↗</span><h3>Career Development</h3><p>Build confidence with practical guides for your next career move.</p></article>
       </div>
     </section>
 

@@ -34,9 +34,12 @@
       return `<a class="btn btn-primary apply-button" href="${helpers.escapeHtml(url)}" target="_blank" rel="noopener noreferrer">View Official Listing</a>`;
     }
 
-    const message = opportunity.closingDate && opportunity.closingDate < helpers.getToday()
-      ? "This opportunity has expired and is not accepting applications."
-      : "Official listing link currently unavailable.";
+    let message = "Official listing link currently unavailable.";
+    if (opportunity.closingDate && opportunity.closingDate < helpers.getToday()) {
+      message = "This opportunity has expired and is not accepting applications.";
+    } else if (opportunity.sample) {
+      message = "This is a sample listing for demonstration only. There is no real application.";
+    }
     const noteId = `application-note-${helpers.escapeHtml(opportunity.id)}`;
     return `<div class="application-action"><button class="btn btn-primary apply-button" type="button" data-application-toggle aria-expanded="false" aria-controls="${noteId}">Listing Status</button><p class="application-unavailable" id="${noteId}" role="status" hidden>${helpers.escapeHtml(message)}</p></div>`;
   }
@@ -65,6 +68,7 @@
         <div>
           <div class="card-top">
             <span class="category-pill">${helpers.escapeHtml(opportunity.category)}</span>
+            ${opportunity.sample ? '<span class="demo-tag">SAMPLE LISTING</span>' : ""}
           </div>
           <h2 class="card-title">${helpers.escapeHtml(opportunity.title)}</h2>
           <p class="card-org">${helpers.escapeHtml(opportunity.organisation)}</p>
@@ -73,7 +77,6 @@
             <li><strong>Closes:</strong> ${helpers.escapeHtml(closingDate)}</li>
             <li><strong>Experience:</strong> ${helpers.escapeHtml(opportunity.experience || "Not specified")}</li>
             <li><strong>Updated:</strong> ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</li>
-            <li><strong>Source verified:</strong> ${helpers.escapeHtml(helpers.formatDate(opportunity.verifiedAt))}</li>
           </ul>
           <p class="card-desc">${helpers.escapeHtml(description)}</p>
         </div>
@@ -88,6 +91,7 @@
     const keyword = document.getElementById("search-input").value.trim().toLowerCase();
     const category = document.getElementById("filter-category").value;
     const location = document.getElementById("filter-location").value;
+    const experience = document.getElementById("filter-experience").value;
     const closingBy = document.getElementById("filter-closing-date").value;
     const sortBy = document.getElementById("filter-sort").value;
     const today = helpers.getToday();
@@ -107,6 +111,7 @@
         && (!keyword || searchableText.includes(keyword))
         && (category === "All" || opportunity.category === category)
         && (location === "All" || opportunity.location === location)
+        && (experience === "All" || opportunity.experience === experience)
         && (!closingBy || (opportunity.closingDate && opportunity.closingDate <= closingBy));
     });
 
@@ -169,11 +174,11 @@
         <header class="details-header">
           <div class="card-top">
             <span class="category-pill">${helpers.escapeHtml(opportunity.category)}</span>
+            ${opportunity.sample ? '<span class="demo-tag">SAMPLE LISTING</span>' : ""}
           </div>
           <h1 class="section-title">${helpers.escapeHtml(opportunity.title)}</h1>
           <p class="card-org">${helpers.escapeHtml(opportunity.organisation)}</p>
           <p class="card-updated">Last updated ${helpers.escapeHtml(helpers.formatDate(opportunity.updated))}</p>
-          <p class="card-updated">Source verified ${helpers.escapeHtml(helpers.formatDate(opportunity.verifiedAt))}: ${helpers.escapeHtml(opportunity.sourceName || "Official employer source")}</p>
         </header>
         <dl class="details-meta-grid">
           <div><dt>Location</dt><dd>${helpers.escapeHtml(opportunity.location || "Not specified")}</dd></div>
@@ -189,12 +194,24 @@
           ? `<section><h2 class="details-section-title">Key responsibilities</h2><ul>${responsibilityItems}</ul></section>`
           : ""}
         <section>
-          <h2 class="details-section-title">Requirements and qualifications</h2>
+          <h2 class="details-section-title">Eligibility</h2>
+          <p>${helpers.escapeHtml(opportunity.eligibility || "Not specified.")}</p>
+        </section>
+        <section>
+          <h2 class="details-section-title">Required qualifications</h2>
           <p>${helpers.escapeHtml(opportunity.qualification || "Not specified.")}</p>
         </section>
         <section>
-          <h2 class="details-section-title">Documents</h2>
+          <h2 class="details-section-title">Required documents</h2>
           <ul>${listItems}</ul>
+        </section>
+        <section>
+          <h2 class="details-section-title">How to apply</h2>
+          <p>${helpers.escapeHtml(opportunity.applicationInstructions || "Follow the instructions on the official listing.")}</p>
+        </section>
+        <section>
+          <h2 class="details-section-title">Organisation</h2>
+          <p>${helpers.escapeHtml(opportunity.organisation)}${opportunity.sourceName ? `. Source: ${helpers.escapeHtml(opportunity.sourceName)}` : ""}${opportunity.verifiedAt ? `, verified ${helpers.escapeHtml(helpers.formatDate(opportunity.verifiedAt))}` : ""}.</p>
         </section>
         <div class="opportunity-actions">
           ${renderApplicationAction(opportunity)}
@@ -221,6 +238,7 @@
       searchInput,
       categoryInput,
       document.getElementById("filter-location"),
+      document.getElementById("filter-experience"),
       document.getElementById("filter-closing-date"),
       document.getElementById("filter-sort")
     ];
@@ -237,6 +255,7 @@
       searchInput.value = "";
       categoryInput.value = "All";
       document.getElementById("filter-location").value = "All";
+      document.getElementById("filter-experience").value = "All";
       document.getElementById("filter-closing-date").value = "";
       document.getElementById("filter-sort").value = "newest";
       updateResults();
