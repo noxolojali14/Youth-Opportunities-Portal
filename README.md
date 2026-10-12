@@ -37,7 +37,6 @@ Young people search across many websites, social media platforms and informal ch
 ## Implemented Features
 
 - Keyword search, plus category, location, experience-level and closing-date filters
-- Sorting by newest, closing soon or A-Z
 - Opportunity cards generated dynamically from a structured JSON dataset (`data/opportunities.json`)
 - Loading, empty-results and error states
 - Contact form validation with clear error and success messages

@@ -421,29 +421,6 @@ textarea:focus-visible {
   background: var(--gold-hover);
 }
 
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.5rem;
-  margin-top: 2rem;
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-stat strong {
-  color: #ffe08a;
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-
-.hero-stat span {
-  color: var(--white);
-  font-size: 0.85rem;
-}
-
 .hero-sample-note {
   margin-top: 1rem;
   color: #dbeafe;
@@ -1138,10 +1115,6 @@ textarea:focus-visible {
 .hero-subtitle,
 .hero-sample-note {
   color: var(--frosted-mint);
-}
-
-.hero-stats strong {
-  color: var(--light-aqua);
 }
 
 .hero-search-form .btn-primary {

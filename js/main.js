@@ -157,20 +157,6 @@
     }).join("");
   }
 
-  function renderStats(opportunities) {
-    const stats = {
-      "stat-listings": opportunities.length,
-      "stat-categories": new Set(opportunities.map(function (item) { return item.category; })).size,
-      "stat-locations": new Set(opportunities.map(function (item) { return item.location; })).size
-    };
-    Object.keys(stats).forEach(function (id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.textContent = String(stats[id]);
-      }
-    });
-  }
-
   function loadHomepage(grid) {
     const deadlines = document.getElementById("deadlines-list");
     showStatus(grid, "Loading opportunities...", "Please wait while the opportunity list is loaded.", false);
@@ -178,7 +164,6 @@
       .then(function (data) {
         const open = getOpenOpportunities(data);
         renderFeatured(grid, open);
-        renderStats(open);
         if (deadlines) {
           renderDeadlines(deadlines, open);
         }

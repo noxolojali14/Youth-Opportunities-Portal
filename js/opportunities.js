@@ -80,10 +80,7 @@
           </ul>
           <p class="card-desc">${helpers.escapeHtml(description)}</p>
         </div>
-        <div class="opportunity-actions">
-          <a class="btn btn-outline" href="${detailsUrl}">View Details</a>
-          ${renderApplicationAction(opportunity)}
-        </div>
+        <a class="btn btn-outline" href="${detailsUrl}">View Details</a>
       </article>`;
   }
 
@@ -93,7 +90,6 @@
     const location = document.getElementById("filter-location").value;
     const experience = document.getElementById("filter-experience").value;
     const closingBy = document.getElementById("filter-closing-date").value;
-    const sortBy = document.getElementById("filter-sort").value;
     const today = helpers.getToday();
 
     const matches = opportunities.filter(function (opportunity) {
@@ -116,15 +112,9 @@
     });
 
     matches.sort(function (first, second) {
-      if (sortBy === "az") {
-        return first.title.localeCompare(second.title);
-      }
-      if (sortBy === "closingSoon") {
-        if (!first.closingDate) return 1;
-        if (!second.closingDate) return -1;
-        return first.closingDate.localeCompare(second.closingDate);
-      }
-      return (second.updated || "").localeCompare(first.updated || "");
+      if (!first.closingDate) return 1;
+      if (!second.closingDate) return -1;
+      return first.closingDate.localeCompare(second.closingDate);
     });
 
     document.getElementById("results-count").textContent =
@@ -157,17 +147,11 @@
       ? opportunity.documents
       : (opportunity.documents ? [opportunity.documents] : []);
     const isExpired = opportunity.closingDate && opportunity.closingDate < helpers.getToday();
-    const responsibilities = Array.isArray(opportunity.responsibilities)
-      ? opportunity.responsibilities
-      : [];
     const listItems = documents.length
       ? documents.map(function (item) {
         return `<li>${helpers.escapeHtml(item)}</li>`;
       }).join("")
       : "<li>Not specified</li>";
-    const responsibilityItems = responsibilities.map(function (item) {
-      return `<li>${helpers.escapeHtml(item)}</li>`;
-    }).join("");
 
     details.innerHTML = `
       <article class="details-box">
@@ -190,9 +174,6 @@
           <h2 class="details-section-title">About this opportunity</h2>
           <p>${helpers.escapeHtml(opportunity.description || "Not specified.")}</p>
         </section>
-        ${responsibilityItems
-          ? `<section><h2 class="details-section-title">Key responsibilities</h2><ul>${responsibilityItems}</ul></section>`
-          : ""}
         <section>
           <h2 class="details-section-title">Eligibility</h2>
           <p>${helpers.escapeHtml(opportunity.eligibility || "Not specified.")}</p>
@@ -239,8 +220,7 @@
       categoryInput,
       document.getElementById("filter-location"),
       document.getElementById("filter-experience"),
-      document.getElementById("filter-closing-date"),
-      document.getElementById("filter-sort")
+      document.getElementById("filter-closing-date")
     ];
 
     let opportunities = [];
@@ -257,7 +237,6 @@
       document.getElementById("filter-location").value = "All";
       document.getElementById("filter-experience").value = "All";
       document.getElementById("filter-closing-date").value = "";
-      document.getElementById("filter-sort").value = "newest";
       updateResults();
     });
 
