@@ -1559,3 +1559,6 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+.about-cta {
+  margin-top: 2rem;
+}
